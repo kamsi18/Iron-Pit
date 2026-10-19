@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IRON PIT — 1v1 Arena FPS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="menu" class="overlay"><div class="menu-card"><p class="kicker">3D FIRST-PERSON ARENA</p><h1>IRON PIT</h1><p class="tagline">One opponent. No teams. Survive the pit.</p><ul class="controls"><li><kbd>↑</kbd> Move forward</li><li><kbd>↓</kbd> Move backward</li><li><kbd>←</kbd> / <kbd>→</kbd> Turn</li><li><kbd>SPACE</kbd> Shoot</li></ul><button id="play-btn" type="button">ENTER THE PIT</button><p class="hint">First to 3 kills wins the match.</p></div></div>
+    <div id="hud" class="hud hidden" aria-hidden="true"><div class="hud-top"><div class="stat"><span class="label">YOU</span><div class="bar"><i id="player-hp"></i></div></div><div class="scoreboard"><span id="player-kills">0</span><span class="vs">VS</span><span id="enemy-kills">0</span></div><div class="stat enemy"><span class="label">RIVAL</span><div class="bar"><i id="enemy-hp"></i></div></div></div><div class="crosshair"></div><div class="gun-hint">SPACE TO FIRE</div></div>
+    <div id="round" class="banner hidden"></div>
+    <div id="result" class="overlay hidden"><div class="menu-card"><p class="kicker" id="result-kicker">MATCH OVER</p><h1 id="result-title">VICTORY</h1><p class="tagline" id="result-copy"></p><button id="again-btn" type="button">FIGHT AGAIN</button><button id="menu-btn" class="ghost" type="button">MAIN MENU</button></div></div>
+    <canvas id="game"></canvas>
+    <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}</script>
+    <script type="module" src="game.js"></script>
+  </body>
+</html>
