@@ -1,57 +1,37 @@
-# Iron-Pit
-1v1
-A browser-based, 3D first-person arena shooter. One opponent, no teams: be the first to 3 kills to win the match.
+# IRON PIT
 
-Gameplay
-Mode: 1v1 duel against a single rival
-Win condition: first to 3 kills
-HUD: health bars for you and your rival, a live kill scoreboard, a crosshair and a fire hint
-Flow: main menu → match (round banners between kills) → result screen with Fight Again or Main Menu
-Controls
-Key	Action
-↑	Move forward
-↓	Move backward
-← / →	Turn
-Space	Shoot
-Getting started
+IRON PIT is a browser-based, first-person 1v1 arena shooter built with Three.js. Fight an AI rival in a sci-fi arena with cover, health bars, and a first-to-three-kills match format.
 
-The game loads game.js as an ES module, so it must be served over HTTP. Opening index.html directly from disk (file://) will usually be blocked by the browser.
+## Play
 
-bash
-# from the project folder
-python3 -m http.server 8000
-# then visit [http://localhost:8000](http://127.0.0.1:8080/)
+Open `index.html` in a modern browser with WebGL enabled and an internet connection. Three.js is loaded from the unpkg CDN, and the page uses Google Fonts, so those external resources also need to be reachable. No build step or npm install is required.
 
-Any static server works (npx serve, VS Code Live Server, etc.).
+For a local web server, run this from the project folder:
 
-An internet connection is required on first load, since Three.js and the fonts come from CDNs.
+```powershell
+python -m http.server 8000
+```
 
-Project structure
-index.html   # page markup: menu, HUD, round banner, result screen, canvas
-styles.css   # styling for overlays, HUD and menu (referenced by index.html)
-game.js      # game logic and Three.js scene (referenced by index.html)
+Then visit [http://localhost:8000](http://localhost:8000).
 
-index.html defines these UI elements, which game.js is expected to drive:
+## Controls
 
-Element ID	Purpose
-#menu / #play-btn	Start screen and "Enter the Pit" button
-#hud	In-match overlay
-#player-hp / #enemy-hp	Health bar fills
-#player-kills / #enemy-kills	Scoreboard counters
-#round	Banner shown between rounds
-#result	End-of-match screen
-#result-kicker / #result-title / #result-copy	Result text (victory or defeat)
-#again-btn / #menu-btn	Rematch and return to menu
-#game	Canvas the 3D scene renders into
-Tech stack
-Three.js 0.160.0, loaded through an import map from unpkg
-Vanilla JavaScript (ES modules), HTML5 canvas and CSS
-Google Fonts: Orbitron and Rajdhani
-Customising
-Theme and layout: edit styles.css.
-Menu text and controls list: edit the markup in index.html.
-Kill target, health, speeds and AI behaviour: edit game.js.
-Three.js version: change the URL in the importmap script in index.html.
-Notes
-index.html is the only file that was available when this README was written, so the sections on gameplay and structure are based on its markup. Details of enemy behaviour, damage values and arena layout live in game.js, which are worth adding here.
-The hidden CSS class is used to toggle the HUD, round banner and result screen.
+| Action | Control |
+| --- | --- |
+| Move forward / backward | Up / Down arrows |
+| Turn left / right | Left / Right arrows |
+| Shoot | Spacebar |
+
+Click **Enter the Pit** to start. The first fighter to reach three kills wins. Use **Fight Again** for another match or **Main Menu** to return to the opening screen.
+
+## Project files
+
+- `index.html` — menu, HUD, result screen, canvas, and browser import map.
+- `styles.css` — layout and visual styling.
+- `game.js` — Three.js arena, fighters, controls, combat, and match flow.
+
+
+## Requirements
+
+- A modern desktop browser with WebGL support.
+- Internet access to load Three.js from `https://unpkg.com` and fonts from Google Fonts.
